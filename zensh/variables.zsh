@@ -1,5 +1,36 @@
 # Sets necessary PATH defaults
-export PATH="$PATH:/usr/local/bin /usr/bin /bin /sbin /usr/sbin /usr/local/sbin /sbin $HOME/.fig/bin $HOME/.local/bin $HOME/.local/bin/tmux-session $HOME/.local/bin/etcher-cli /home/linuxbrew/.linuxbrew/bin /snap/bin $HOME/set-me-up $HOME/set-me-up/set-me-up-installer"
+DEFAULT_PATHS=(
+    "/usr/local/bin"
+    "/usr/bin"
+    "/bin"
+    "/sbin"
+    "/usr/sbin"
+    "/usr/local/sbin"
+    "$HOME/.fig/bin"
+    "$HOME/.local/bin"
+    "$HOME/.local/bin/tmux-session"
+    "$HOME/.local/bin/etcher-cli"
+    "$HOME/set-me-up"
+    "$HOME/set-me-up/set-me-up-installer"
+)
+
+# Add each default path to PATH
+for path in "${DEFAULT_PATHS[@]}"; do
+    export PATH="$PATH:$path"
+done
+
+# Check if we are on Linux
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    LINUX_PATHS=(
+        "/home/linuxbrew/.linuxbrew/bin"
+        "/snap/bin"
+    )
+
+    # Add each Linux-specific path to PATH
+    for path in "${LINUX_PATHS[@]}"; do
+        export PATH="$PATH:$path"
+    done
+fi
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -23,3 +54,10 @@ export DOTFILES=$HOME/"set-me-up"
 
 # Configure Neovim as default editor
 export EDITOR="nvim"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Prefer US English and use UTF-8 encoding.
+
+export LANG="en_US"
+export LC_ALL="en_US.UTF-8"
