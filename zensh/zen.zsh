@@ -41,6 +41,7 @@ setopt hist_find_no_dups
 
 source "completions.zsh"
 source "aliases.zsh"
+source "functions.zsh"
 
 # ---------------------------------------------------------
 
