@@ -1,5 +1,5 @@
 # load local zsh configurations
-source "$HOME"/.zsh.local
+[[ -s "$HOME/.zsh.local" ]] && source "$HOME"/.zsh.local
 
 # zensh
 # This configuration prioritizes zen and calm in order to reduce
