@@ -26,6 +26,7 @@ fi
 
 # ---------------------------------------------------------
 
+source "theme.zsh"
 source "variables.zsh"
 source "plugins.zsh"
 source "snippets.zsh"
@@ -59,15 +60,22 @@ source "functions.zsh"
 
 # ---------------------------------------------------------
 
-# Shell integrations
+# Homebrew
+# see: https://brew.sh/
 
 processor=$(/usr/sbin/sysctl -n machdep.cpu.brand_string | grep -o "Apple")
 
 if [[ -n $processor ]]; then
 	eval "$(/opt/homebrew/bin/brew shellenv)"
 else
-	eval "$(/usr/local/bin/brew shellenv)"
+	# Configure linuxbrew
+	# see: https://docs.brew.sh/Homebrew-on-Linux#install
+
+	test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
+	test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
+
+# ---------------------------------------------------------
 
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"

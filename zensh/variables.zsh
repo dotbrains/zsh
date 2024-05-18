@@ -32,18 +32,16 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     done
 fi
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Ruby configurations
+# Adds "GEMS_PATH" to "$PATH"
+# Fixes "I INSTALLED GEMS WITH --user-install AND THEIR COMMANDS ARE NOT AVAILABLE"
+# see: https://guides.rubygems.org/faqs/#user-install
 
-# Nord for fzf
-# see: https://github.com/ianchesal/nord-fzf
-export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
-    --color=fg:#e5e9f0,bg:#3b4252,hl:#81a1c1
-    --color=fg+:#e5e9f0,bg+:#3b4252,hl+:#81a1c1
-    --color=info:#eacb8a,prompt:#bf6069,pointer:#b48dac
-    --color=marker:#a3be8b,spinner:#b48dac,header:#a3be8b'
-
-# Nord for Bat
-export BAT_THEME="Nord"
+if command -v gem &>/dev/null; then
+    if [ -d "$(gem environment gemdir)/bin" ]; then
+        export PATH="$(gem environment gemdir)/bin:$PATH"
+    fi
+fi
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -61,3 +59,15 @@ export EDITOR="nvim"
 
 export LANG="en_US"
 export LC_ALL="en_US.UTF-8"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Make Python use UTF-8 encoding for output to stdin/stdout/stderr.
+
+export PYTHONIOENCODING="UTF-8"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Don't clear the screen after quitting a `man` page.
+
+export MANPAGER="less -X"
