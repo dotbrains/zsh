@@ -16,7 +16,9 @@ DEFAULT_PATHS=(
 
 # Add each default path to PATH
 for path in "${DEFAULT_PATHS[@]}"; do
-    export PATH="$PATH:$path"
+    if [ -d "$path" ]; then
+        export PATH="$PATH:$path"
+    fi
 done
 
 # Check if we are on Linux
@@ -28,7 +30,9 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 
     # Add each Linux-specific path to PATH
     for path in "${LINUX_PATHS[@]}"; do
-        export PATH="$PATH:$path"
+        if [ -d "$path" ]; then
+            export PATH="$PATH:$path"
+        fi
     done
 fi
 
