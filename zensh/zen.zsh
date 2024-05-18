@@ -61,14 +61,11 @@ source "functions.zsh"
 
 # Shell integrations
 
-# Check to see if the Mac needs Rosetta installed by testing the processor
 processor=$(/usr/sbin/sysctl -n machdep.cpu.brand_string | grep -o "Apple")
 
 if [[ -n $processor ]]; then
-	# 'brew' configurations
 	eval "$(/opt/homebrew/bin/brew shellenv)"
 else
-	# 'brew' configurations
 	eval "$(/usr/local/bin/brew shellenv)"
 fi
 
