@@ -6,10 +6,7 @@ DEFAULT_PATHS=(
     "/sbin"
     "/usr/sbin"
     "/usr/local/sbin"
-    "$HOME/.fig/bin"
     "$HOME/.local/bin"
-    "$HOME/.local/bin/tmux-session"
-    "$HOME/.local/bin/etcher-cli"
     "$HOME/set-me-up"
     "$HOME/set-me-up/set-me-up-installer"
 )
