@@ -7,7 +7,7 @@ This repository contains my sensible defaults for zsh (z shell).
 The contents of this repository should be placed in your `$HOME/.config`. 
 
 ```bash
-git clone https://github.com/nicholasadamou/zsh.git $HOME/.config/zsh
+git clone https://github.com/dotbrains/zsh.git $HOME/.config/zsh
 ```
 
 In your `$HOME` directory you would want a `.zshrc` that contains:

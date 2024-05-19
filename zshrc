@@ -4,7 +4,7 @@
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # zensh
-# see: https://github.com/nicholasadamou/zsh
+# see: https://github.com/dotbrains/zsh
 # This configuration prioritizes zen and calm in order to reduce
 # distractions and maintain momentum when working inside of the terminal.
 source zensh/zen.zsh
