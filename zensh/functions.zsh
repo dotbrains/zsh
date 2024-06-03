@@ -2596,4 +2596,4 @@ omr() {
 # Section: [emoji-log](https://github.com/ahmadawais/Emoji-Log) #
 #---------------------------------------------------------------#
 
-. emoji-log
+. $HOME/.config/zsh/zensh/emoji-log.zsh

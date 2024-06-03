@@ -73,9 +73,9 @@ fi
 
 # `git` aliases
 
-# command -v "hub" &>/dev/null && {
-#     alias git=hub
-# }
+command -v "hub" &>/dev/null && {
+    alias git=hub
+}
 
 alias acp="git add -A && git commit -v && git push"
 
