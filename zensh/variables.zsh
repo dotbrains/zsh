@@ -1,5 +1,5 @@
 # Ensure we start with the system default PATH
-DEFAULT_SYSTEM_PATHS="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+DEFAULT_SYSTEM_PATHS="$PATH"
 
 # Sets necessary PATH defaults
 DEFAULT_PATHS=(
