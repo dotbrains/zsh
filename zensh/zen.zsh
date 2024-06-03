@@ -27,7 +27,7 @@ fi
 # ---------------------------------------------------------
 
 # Resolve the directory where this script is located
-ZSH_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ZSH_DIR="$HOME/.config/zsh/zensh"
 
 # ---------------------------------------------------------
 
