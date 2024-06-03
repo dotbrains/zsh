@@ -1,3 +1,6 @@
+# Ensure we start with the system default PATH
+DEFAULT_SYSTEM_PATHS="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+
 # Sets necessary PATH defaults
 DEFAULT_PATHS=(
     "/usr/local/bin"
@@ -10,6 +13,9 @@ DEFAULT_PATHS=(
     "$HOME/set-me-up"
     "$HOME/set-me-up/set-me-up-installer"
 )
+
+# Reset PATH to default system paths
+export PATH="$DEFAULT_SYSTEM_PATHS"
 
 # Add each default path to PATH
 for path in "${DEFAULT_PATHS[@]}"; do
