@@ -26,14 +26,19 @@ fi
 
 # ---------------------------------------------------------
 
-source "theme.zsh"
-source "variables.zsh"
-source "plugins.zsh"
-source "snippets.zsh"
+# Resolve the directory where this script is located
+ZSH_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # ---------------------------------------------------------
 
-source "keybindings.zsh"
+source "$ZSH_DIR/theme.zsh"
+source "$ZSH_DIR/variables.zsh"
+source "$ZSH_DIR/plugins.zsh"
+source "$ZSH_DIR/snippets.zsh"
+
+# ---------------------------------------------------------
+
+source "$ZSH_DIR/keybindings.zsh"
 
 # ---------------------------------------------------------
 
@@ -54,9 +59,9 @@ setopt hist_find_no_dups
 
 # ---------------------------------------------------------
 
-source "completions.zsh"
-source "aliases.zsh"
-source "functions.zsh"
+source "$ZSH_DIR/completions.zsh"
+source "$ZSH_DIR/aliases.zsh"
+source "$ZSH_DIR/functions.zsh"
 
 # ---------------------------------------------------------
 
