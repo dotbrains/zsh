@@ -21,4 +21,4 @@ fi
 
 # Nord dircolors
 # see: https://github.com/coltondick/zsh-dircolors-nord
-source "zsh-dircolors-nord/zsh-dircolors-nord.zsh"
+source "$HOME/.config/zsh/zsh-dircolors-nord/zsh-dircolors-nord.zsh"

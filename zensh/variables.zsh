@@ -8,30 +8,29 @@ DEFAULT_PATHS=(
     "$HOME/set-me-up/set-me-up-installer"
 )
 
+# Linux-specific PATH additions
+LINUX_PATHS=(
+    "/home/linuxbrew/.linuxbrew/bin"
+    "/snap/bin"
+)
+
 # Reset PATH to default system paths
 export PATH="$DEFAULT_SYSTEM_PATHS"
 
-# Add each default path to PATH
-for path in "${DEFAULT_PATHS[@]}"; do
-    if [ -d "$path" ]; then
-        export PATH="$PATH:$path"
-    fi
-done
-
-# Check if we are on Linux
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    LINUX_PATHS=(
-        "/home/linuxbrew/.linuxbrew/bin"
-        "/snap/bin"
-    )
-
-    # Add each Linux-specific path to PATH
-    for path in "${LINUX_PATHS[@]}"; do
-        if [ -d "$path" ]; then
-            export PATH="$PATH:$path"
-        fi
+# Add paths to PATH if they exist
+add_paths() {
+    for path in "$@"; do
+        [ -d "$path" ] && export PATH="$PATH:$path"
     done
-fi
+}
+
+# Add default paths
+add_paths "${DEFAULT_PATHS[@]}"
+
+# Add Linux-specific paths if on Linux
+[[ "$OSTYPE" == "linux-gnu"* ]] && add_paths "${LINUX_PATHS[@]}"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Ruby configurations
 # Adds "GEMS_PATH" to "$PATH"
