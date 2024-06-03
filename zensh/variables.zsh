@@ -3,12 +3,6 @@ DEFAULT_SYSTEM_PATHS="$PATH"
 
 # Sets necessary PATH defaults
 DEFAULT_PATHS=(
-    "/usr/local/bin"
-    "/usr/bin"
-    "/bin"
-    "/sbin"
-    "/usr/sbin"
-    "/usr/local/sbin"
     "$HOME/.local/bin"
     "$HOME/set-me-up"
     "$HOME/set-me-up/set-me-up-installer"
