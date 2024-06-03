@@ -180,10 +180,10 @@ kilp() {
 
 # Bash: Kill Vim when “Vim: Warning: Output not to a terminal”
 # see: https://stackoverflow.com/a/46432233/5290011
-vim() {
-    [ -t 1 ] &&
-        command vim "$@"
-}
+# vim() {
+#     [ -t 1 ] &&
+#         command vim "$@"
+# }
 
 # ghf - [G]rep [H]istory [F]or top ten commands and execute one
 # usage:
