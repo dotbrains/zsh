@@ -923,7 +923,7 @@ guthorc() {
 
 # Label: Git Status (all)
 # Description: Answer status of projects with uncommited/unpushed changes.
-gsta() {
+gsa() {
     while read -r project; do
         (
             cd "$project" || exit
