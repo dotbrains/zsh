@@ -1,3 +1,5 @@
+# shellcheck source=/dev/null
+
 # load local zsh configurations
 [[ -s "$HOME/.zsh.local" ]] && source "$HOME"/.zsh.local
 
@@ -7,7 +9,7 @@
 # see: https://github.com/dotbrains/zsh
 # This configuration prioritizes zen and calm in order to reduce
 # distractions and maintain momentum when working inside of the terminal.
-source zensh/zen.zsh
+source ~/.config/zsh/zensh/zen.zsh
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
