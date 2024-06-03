@@ -1,3 +1,6 @@
+# NOTE: There is probably a sexier nicer way to do this, but until I figure that out I am manually unset PATH
+export PATH=""
+
 # Ensure we start with the system default PATH
 DEFAULT_SYSTEM_PATHS="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
@@ -18,18 +21,25 @@ LINUX_PATHS=(
 # Reset PATH to default system paths
 export PATH="$DEFAULT_SYSTEM_PATHS"
 
-# Add paths to PATH if they exist
+# Function to add paths to PATH if they exist and are not already in PATH
 add_paths() {
     for path in "$@"; do
-        [ -d "$path" ] && export PATH="$PATH:$path"
+        if [ -d "$path" ]; then
+            if [[ ":$PATH:" != *":$path:"* ]]; then
+                export PATH="$PATH:$path"
+            fi
+        fi
     done
+
+    # Add default system paths
+    export PATH="$DEFAULT_SYSTEM_PATHS:$PATH"
 }
 
 # Add default paths
-add_paths "${DEFAULT_PATHS[@]}"
+add_paths "${DEFAULT_PATHS[*]}"
 
 # Add Linux-specific paths if on Linux
-[[ "$OSTYPE" == "linux-gnu"* ]] && add_paths "${LINUX_PATHS[@]}"
+[[ "$OSTYPE" == "linux-gnu"* ]] && add_paths "${LINUX_PATHS[*]}"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

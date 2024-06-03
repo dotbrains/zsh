@@ -36,6 +36,11 @@ command -v "exa" &>/dev/null && {
     alias l="exa -l"
 }
 
+command -v "eza" &>/dev/null && {
+    alias ll="eza -l -g --icons"
+    alias lla="ll -a"
+}
+
 # List only directories
 alias lsd="ls -lF --color | grep --color=never '^d'"
 # List only hidden files
@@ -284,4 +289,13 @@ esac
 
 command -v "fish" &>/dev/null && [ -f "$HOME/.config/fish/functions/update.fish" ] && {
     alias update="fish -c \"update\""
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# `cz` commitizen - Simple commit conventions for internet citizens.
+# see: https://commitizen.github.io/cz-cli/
+
+command -v "npx" &>/dev/null && {
+    alias cz="npx cz"
 }
