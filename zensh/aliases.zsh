@@ -20,7 +20,7 @@ command -v "xclip" &>/dev/null && {
     alias pbpaste='xclip -selection clipboard -o'
 }
 
-alias +x="chmod +x"
+alias x="chmod +x"
 alias z="zoxide"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

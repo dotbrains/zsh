@@ -6,6 +6,7 @@ DEFAULT_PATHS=(
     "$HOME/.local/bin"
     "$HOME/set-me-up"
     "$HOME/set-me-up/set-me-up-installer"
+    "/opt/homebrew/bin"
 )
 
 # Linux-specific PATH additions
