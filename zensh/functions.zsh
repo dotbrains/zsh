@@ -77,7 +77,7 @@ function u() {
         brew upgrade
 
         if [ "$(uname)" = "Darwin" ]; then
-            brew cask upgrade
+            brew update --cask
 
             if command -v "mas" &>/dev/null; then
                 mas upgrade
@@ -136,7 +136,7 @@ brew-update() {
         brew upgrade
 
         if [ "$(uname)" = "Darwin" ]; then
-            brew cask upgrade
+            brew upgrade --cask
 
             if command -v "mas" &>/dev/null; then
                 mas upgrade
