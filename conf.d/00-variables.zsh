@@ -1,3 +1,6 @@
+#!/usr/bin/env zsh
+# Environment variables and PATH configuration
+
 # NOTE: There is probably a sexier nicer way to do this, but until I figure that out I am manually unset PATH
 export PATH=""
 

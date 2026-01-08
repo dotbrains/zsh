@@ -1,9 +1,12 @@
+#!/usr/bin/env zsh
+# Completions configuration
+
 # Load completions
 autoload -Uz compinit && compinit
 
 zinit cdreplay -q
 
-# ---------------------------------------------------------
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"

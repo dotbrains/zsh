@@ -1,4 +1,7 @@
-# Powerlevel10k prompt
+#!/usr/bin/env zsh
+# Theme and prompt configuration
+
+# Powerlevel10k prompt (commented out by default)
 # https://github.com/romkatv/powerlevel10k
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
@@ -11,7 +14,7 @@
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source "$HOME/.p10k.zsh"
 
-# ---------------------------------------------------------
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Starship prompt
 # https://starship.rs/
@@ -24,46 +27,14 @@ if command -v starship &>/dev/null; then
 	eval "$(starship init zsh)"
 fi
 
-# ---------------------------------------------------------
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# Resolve the directory where this script is located
-ZSH_DIR="$HOME/.config/zsh/zensh"
+# Load Nord theme
+source "$ZSH_CONFIG_DIR/themes/nord/fzf.zsh"
+source "$ZSH_CONFIG_DIR/themes/nord/bat.zsh"
+source "$ZSH_CONFIG_DIR/themes/nord/dircolors.zsh"
 
-# ---------------------------------------------------------
-
-source "$ZSH_DIR/theme.zsh"
-source "$ZSH_DIR/variables.zsh"
-source "$ZSH_DIR/plugins.zsh"
-source "$ZSH_DIR/snippets.zsh"
-
-# ---------------------------------------------------------
-
-source "$ZSH_DIR/keybindings.zsh"
-
-# ---------------------------------------------------------
-
-# History
-
-HISTSIZE=5000
-HISTFILE=~/.zsh_history
-SAVEHIST=$HISTSIZE
-HISTDUP=erase
-
-setopt appendhistory
-setopt sharehistory
-setopt hist_ignore_space
-setopt hist_ignore_all_dups
-setopt hist_save_no_dups
-setopt hist_ignore_dups
-setopt hist_find_no_dups
-
-# ---------------------------------------------------------
-
-source "$ZSH_DIR/completions.zsh"
-source "$ZSH_DIR/aliases.zsh"
-source "$ZSH_DIR/functions.zsh"
-
-# ---------------------------------------------------------
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Homebrew
 # see: https://brew.sh/
@@ -80,7 +51,8 @@ else
 	test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
-# ---------------------------------------------------------
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+# fzf and zoxide integration
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
