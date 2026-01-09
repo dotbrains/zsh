@@ -4,7 +4,10 @@
 # Load completions
 autoload -Uz compinit && compinit
 
-zinit cdreplay -q
+# Only run zinit cdreplay if zinit is available
+if command -v zinit &>/dev/null; then
+    zinit cdreplay -q
+fi
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

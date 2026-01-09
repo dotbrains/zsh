@@ -16,19 +16,6 @@
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# Starship prompt
-# https://starship.rs/
-# The minimal, blazing-fast, and infinitely customizable prompt for any shell!
-
-# By placing this at the top of your .zshrc, it will ensure that Starship is
-# immediatly available for use - making the initialization of the shell faster.
-
-if command -v starship &>/dev/null; then
-	eval "$(starship init zsh)"
-fi
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 # Load Nord theme
 source "$ZSH_CONFIG_DIR/themes/nord/fzf.zsh"
 source "$ZSH_CONFIG_DIR/themes/nord/bat.zsh"
@@ -42,17 +29,39 @@ source "$ZSH_CONFIG_DIR/themes/nord/dircolors.zsh"
 processor=$(/usr/sbin/sysctl -n machdep.cpu.brand_string | grep -o "Apple")
 
 if [[ -n $processor ]]; then
-	eval "$(/opt/homebrew/bin/brew shellenv)"
+	# Set Homebrew paths manually to avoid shell detection issues
+	export HOMEBREW_PREFIX="/opt/homebrew"
+	export HOMEBREW_CELLAR="/opt/homebrew/Cellar"
+	export HOMEBREW_REPOSITORY="/opt/homebrew"
+	export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+	export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:"
+	export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}"
 else
 	# Configure linuxbrew
 	# see: https://docs.brew.sh/Homebrew-on-Linux#install
+	if test -d ~/.linuxbrew; then
+		export PATH="$HOME/.linuxbrew/bin:$PATH"
+	elif test -d /home/linuxbrew/.linuxbrew; then
+		export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+	fi
+fi
 
-	test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
-	test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Starship prompt
+# https://starship.rs/
+# The minimal, blazing-fast, and infinitely customizable prompt for any shell!
+if command -v starship &>/dev/null; then
+	eval "$(starship init zsh)"
 fi
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # fzf and zoxide integration
-eval "$(fzf --zsh)"
-eval "$(zoxide init --cmd cd zsh)"
+if command -v fzf &>/dev/null; then
+    eval "$(fzf --zsh)"
+fi
+
+if command -v zoxide &>/dev/null; then
+    eval "$(zoxide init --cmd cd zsh)"
+fi

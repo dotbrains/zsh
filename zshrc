@@ -4,6 +4,9 @@
 # This configuration prioritizes zen and calm in order to reduce
 # distractions and maintain momentum when working inside of the terminal.
 
+# Unset fish-specific environment variables to prevent conflicts
+unset STARSHIP_SHELL
+
 # Get the directory where this script is located
 ZSH_CONFIG_DIR="${${(%):-%x}:A:h}"
 

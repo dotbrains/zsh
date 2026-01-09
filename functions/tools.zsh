@@ -53,4 +53,6 @@ omr() {
 # Section: [emoji-log](https://github.com/ahmadawais/Emoji-Log) #
 #---------------------------------------------------------------#
 
-. $HOME/.config/zsh/zensh/emoji-log.zsh
+if [[ -f "$HOME/.config/zsh/zensh/emoji-log.zsh" ]]; then
+    . "$HOME/.config/zsh/zensh/emoji-log.zsh"
+fi
