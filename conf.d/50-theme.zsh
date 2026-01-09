@@ -16,10 +16,18 @@
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# Load Nord theme
-source "$ZSH_CONFIG_DIR/themes/nord/fzf.zsh"
-source "$ZSH_CONFIG_DIR/themes/nord/bat.zsh"
-source "$ZSH_CONFIG_DIR/themes/nord/dircolors.zsh"
+# Load theme (set ZSH_THEME environment variable to change)
+# Available themes: nord, gruvbox
+# Default: gruvbox
+ZSH_THEME="${ZSH_THEME:-gruvbox}"
+
+if [[ -d "$ZSH_CONFIG_DIR/themes/$ZSH_THEME" ]]; then
+    source "$ZSH_CONFIG_DIR/themes/$ZSH_THEME/fzf.zsh"
+    source "$ZSH_CONFIG_DIR/themes/$ZSH_THEME/bat.zsh"
+    source "$ZSH_CONFIG_DIR/themes/$ZSH_THEME/dircolors.zsh"
+else
+    echo "Warning: Theme '$ZSH_THEME' not found. Available themes: nord, gruvbox"
+fi
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
