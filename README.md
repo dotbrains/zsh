@@ -138,8 +138,7 @@ Contributions are welcome! Please:
 
 ## License
 
-MIT License - See LICENSE file for details
-
+This project is licensed under the [PolyForm Shield License 1.0.0](https://polyformproject.org/licenses/shield/1.0.0/) — see [LICENSE](LICENSE) for details.
 ## Credits
 
 - Inspired by various ZSH configurations
