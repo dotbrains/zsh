@@ -102,3 +102,7 @@ See `~/.config/zsh/aliases/` for complete implementation.
 - `has` - Check for command line tools and versions
 - `wttr` - Get weather from wttr.in
 - `thefuck` - Command correction (if installed)
+
+## Claude Code
+
+- `claude` - Launch Claude Code with Opus model and skip permissions
