@@ -106,3 +106,7 @@ See `~/.config/zsh/aliases/` for complete implementation.
 ## Claude Code
 
 - `claude` - Launch Claude Code with Opus model and skip permissions
+
+## Codex CLI
+
+- `codex` - Launch Codex CLI with o3 model
