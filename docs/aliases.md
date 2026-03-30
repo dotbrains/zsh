@@ -109,4 +109,4 @@ See `~/.config/zsh/aliases/` for complete implementation.
 
 ## Codex CLI
 
-- `codex` - Launch Codex CLI with o3 model
+- `codex` - Launch Codex CLI with gpt-5.4 model
