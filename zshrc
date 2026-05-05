@@ -47,3 +47,13 @@ done
 for git_function in "$ZSH_CONFIG_DIR"/functions/git/*.zsh; do
     [ -f "$git_function" ] && source "$git_function"
 done
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Initialize zoxide (smart cd)
+# Keep this block at the very end of zshrc.
+# zoxide doctor warns when initialization is not last.
+# see: https://github.com/ajeetdsouza/zoxide
+if command -v zoxide &>/dev/null; then
+    eval "$(zoxide init --cmd cd zsh)"
+fi

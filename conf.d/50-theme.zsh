@@ -71,11 +71,9 @@ fi
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# fzf and zoxide integration
+# fzf integration
+# Note: zoxide is initialized at the very end of zshrc so its hook is last.
+# zoxide doctor warns when its init isn't the final line of the shell config.
 if command -v fzf &>/dev/null; then
     eval "$(fzf --zsh)"
-fi
-
-if command -v zoxide &>/dev/null; then
-    eval "$(zoxide init --cmd cd zsh)"
 fi
