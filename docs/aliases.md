@@ -110,7 +110,6 @@ See `~/.config/zsh/aliases/` for complete implementation.
 
 ## Codex CLI
 
-- `codex` - Launch Codex CLI with gpt-5.4 model
 - `cx` - Launch with full-auto (no approval prompts, sandboxed)
 - `cxd` - Launch with dangerously-bypass-approvals-and-sandbox (no restrictions)
 
