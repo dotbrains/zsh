@@ -105,7 +105,6 @@ See `~/.config/zsh/aliases/` for complete implementation.
 
 ## Claude Code
 
-- `claude` - Launch Claude Code with Opus model (safe default)
 - `cl` - Launch with skip-permissions (no approval prompts)
 
 ## Codex CLI
