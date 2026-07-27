@@ -42,11 +42,29 @@ if command -v theme &>/dev/null; then
         catppuccin)
             theme catppuccin-macchiato
             ;;
+        tokyo-night)
+            theme tokyo-night
+            ;;
+        rose-pine)
+            theme rose-pine
+            ;;
+        dracula)
+            theme dracula
+            ;;
+        everforest)
+            theme everforest
+            ;;
+        solarized)
+            theme solarized-dark
+            ;;
+        kanagawa)
+            theme kanagawa
+            ;;
     esac
 fi
 
 # Load theme (set ZSH_THEME environment variable to change)
-# Available themes: gruvbox, nord
+# Available themes match `smu theme list`.
 # Default: gruvbox
 ZSH_THEME="${ZSH_THEME:-$SMU_THEME}"
 
