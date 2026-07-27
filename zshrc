@@ -53,7 +53,9 @@ done
 # Initialize zoxide (smart cd)
 # Keep this block at the very end of zshrc.
 # zoxide doctor warns when initialization is not last.
+# Gate on interactive shells so non-interactive invocations (e.g. tooling
+# that sources the config per command) don't trigger the doctor warning.
 # see: https://github.com/ajeetdsouza/zoxide
-if command -v zoxide &>/dev/null; then
+if [[ -o interactive ]] && command -v zoxide &>/dev/null; then
     eval "$(zoxide init --cmd cd zsh)"
 fi
