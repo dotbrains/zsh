@@ -106,11 +106,15 @@ fi
 # Starship prompt
 # https://starship.rs/
 # The minimal, blazing-fast, and infinitely customizable prompt for any shell!
-if [[ "$SMU_PROMPT" = "classic" ]]; then
-    PROMPT='%n@%m:%~%# '
+prompt_adapter="${ZSH_CONFIG_DIR:-$HOME/.config/zsh}/prompts/${SMU_PROMPT}.zsh"
+if [[ -r "$prompt_adapter" ]]; then
+    source "$prompt_adapter"
 elif command -v starship &>/dev/null; then
-	eval "$(starship init zsh)"
+    eval "$(starship init zsh)"
+else
+    PROMPT='%n@%m:%~%# '
 fi
+unset prompt_adapter
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
