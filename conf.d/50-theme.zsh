@@ -18,21 +18,44 @@
 
 # Load terminal theme using theme.sh
 # see: https://github.com/lemnos/theme.sh
+SMU_PROFILE="${XDG_CONFIG_HOME:-$HOME/.config}/set-me-up/profile.env"
+if [[ -f "$SMU_PROFILE" ]]; then
+    smu_theme_before="${SMU_THEME:-}"
+    smu_prompt_before="${SMU_PROMPT:-}"
+    source "$SMU_PROFILE"
+    [[ -n "$smu_theme_before" ]] && SMU_THEME="$smu_theme_before"
+    [[ -n "$smu_prompt_before" ]] && SMU_PROMPT="$smu_prompt_before"
+    unset smu_theme_before smu_prompt_before
+fi
+
+export SMU_THEME="${SMU_THEME:-gruvbox}"
+export SMU_PROMPT="${SMU_PROMPT:-starship}"
+
 if command -v theme &>/dev/null; then
-    theme gruvbox-material-dark-medium
+    case "$SMU_THEME" in
+        gruvbox)
+            theme gruvbox-material-dark-medium
+            ;;
+        nord)
+            theme nord
+            ;;
+        catppuccin)
+            theme catppuccin-macchiato
+            ;;
+    esac
 fi
 
 # Load theme (set ZSH_THEME environment variable to change)
-# Available themes: nord, gruvbox
+# Available themes: gruvbox, nord
 # Default: gruvbox
-ZSH_THEME="${ZSH_THEME:-gruvbox}"
+ZSH_THEME="${ZSH_THEME:-$SMU_THEME}"
 
 if [[ -d "$ZSH_CONFIG_DIR/themes/$ZSH_THEME" ]]; then
     source "$ZSH_CONFIG_DIR/themes/$ZSH_THEME/fzf.zsh"
     source "$ZSH_CONFIG_DIR/themes/$ZSH_THEME/bat.zsh"
     source "$ZSH_CONFIG_DIR/themes/$ZSH_THEME/dircolors.zsh"
 else
-    echo "Warning: Theme '$ZSH_THEME' not found. Available themes: nord, gruvbox"
+    echo "Warning: Theme '$ZSH_THEME' not found. Available themes: gruvbox, nord"
 fi
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -65,7 +88,9 @@ fi
 # Starship prompt
 # https://starship.rs/
 # The minimal, blazing-fast, and infinitely customizable prompt for any shell!
-if command -v starship &>/dev/null; then
+if [[ "$SMU_PROMPT" = "classic" ]]; then
+    PROMPT='%n@%m:%~%# '
+elif command -v starship &>/dev/null; then
 	eval "$(starship init zsh)"
 fi
 
