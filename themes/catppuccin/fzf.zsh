@@ -1,9 +1,10 @@
 #!/usr/bin/env zsh
-# Catppuccin Macchiato theme for fzf
+# Generated from modules/colorschemes/themes/catppuccin.toml.
 
 if command -v fzf &>/dev/null; then
     export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
-    --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796
-    --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6
-    --color=marker:#f4dbd6,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796'
+    --color=fg:#cad3f5,bg:#24273a,hl:#eed49f
+    --color=fg+:#a5adcb,bg+:#5b6078,hl+:#eed49f
+    --color=info:#8aadf4,prompt:#ed8796,pointer:#a6da95
+    --color=marker:#8bd5ca,spinner:#f5bde6,header:#8bd5ca'
 fi
