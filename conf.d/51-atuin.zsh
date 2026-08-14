@@ -1,0 +1,6 @@
+#!/usr/bin/env zsh
+# Initialize atuin
+# see: https://github.com/atuinsh/atuin
+if command -v atuin &>/dev/null; then
+  eval "$(atuin init zsh)"
+fi
