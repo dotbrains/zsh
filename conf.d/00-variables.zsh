@@ -25,11 +25,13 @@ LINUX_PATHS=(
 export PATH="$DEFAULT_SYSTEM_PATHS"
 
 # Function to add paths to PATH if they exist and are not already in PATH
+# Note: do not name the loop variable `path` — in zsh it is tied to PATH.
 add_paths() {
-    for path in "$@"; do
-        if [ -d "$path" ]; then
-            if [[ ":$PATH:" != *":$path:"* ]]; then
-                export PATH="$PATH:$path"
+    local dir
+    for dir in "$@"; do
+        if [ -d "$dir" ]; then
+            if [[ ":$PATH:" != *":$dir:"* ]]; then
+                export PATH="$PATH:$dir"
             fi
         fi
     done
@@ -39,10 +41,10 @@ add_paths() {
 }
 
 # Add default paths
-add_paths "${DEFAULT_PATHS[*]}"
+add_paths "${DEFAULT_PATHS[@]}"
 
 # Add Linux-specific paths if on Linux
-[[ "$OSTYPE" == "linux-gnu"* ]] && add_paths "${LINUX_PATHS[*]}"
+[[ "$OSTYPE" == "linux-gnu"* ]] && add_paths "${LINUX_PATHS[@]}"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
