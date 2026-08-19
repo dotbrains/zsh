@@ -34,7 +34,7 @@ export SMU_PROMPT="${SMU_PROMPT:-starship}"
 if command -v theme &>/dev/null; then
     case "$SMU_THEME" in
         gruvbox)
-            theme gruvbox-material-dark-medium
+            theme gruvbox-dark
             ;;
         nord)
             theme nord
