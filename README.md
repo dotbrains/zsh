@@ -29,7 +29,7 @@ A minimal, modular, and XDG-compliant ZSH configuration prioritizing calm and fo
 The contents of this repository should be placed in your `$HOME/.config`.
 
 ```bash
-git clone --recursive https://github.com/dotbrains/zsh.git $HOME/.config/zsh
+git clone --recursive https://github.com/smeltery/zsh.git $HOME/.config/zsh
 ```
 
 In your `$HOME` directory you would want a `.zshrc` that contains:
@@ -149,5 +149,5 @@ This project is licensed under the [PolyForm Shield License 1.0.0](https://polyf
 
 ## Related Projects
 
-- [bash](https://github.com/dotbrains/bash) - Bash configuration
-- [fish](https://github.com/dotbrains/fish) - Fish shell configuration
+- [bash](https://github.com/smeltery/bash) - Bash configuration
+- [fish](https://github.com/smeltery/fish) - Fish shell configuration

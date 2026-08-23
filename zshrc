@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 # zensh - A Zen ZSH Configuration
-# see: https://github.com/dotbrains/zsh
+# see: https://github.com/smeltery/zsh
 # This configuration prioritizes zen and calm in order to reduce
 # distractions and maintain momentum when working inside of the terminal.
 
