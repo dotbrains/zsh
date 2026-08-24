@@ -50,6 +50,12 @@ done
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+# Initialize worktrunk (git worktree management for parallel AI agents)
+# see: https://github.com/max-sixty/worktrunk
+if [[ -o interactive ]] && command -v wt &>/dev/null; then
+    eval "$(wt config shell init zsh)"
+fi
+
 # Initialize zoxide (smart cd)
 # Keep this block at the very end of zshrc.
 # zoxide doctor warns when initialization is not last.
