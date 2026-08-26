@@ -112,9 +112,9 @@ See `~/.config/zsh/aliases/` for complete implementation.
 - `cx` - Launch with full-auto (no approval prompts, sandboxed)
 - `cxd` - Launch with dangerously-bypass-approvals-and-sandbox (no restrictions)
 
-## Cursor Agent CLI
+## Cursor Agent
 
-- `ca` - Launch with force (auto-approve commands)
+- `ca` - Launch with yolo (auto-approve commands)
 - `cap` - Print mode (`agent -p`) — non-interactive query
 
 ## pi coding agent
